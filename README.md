@@ -11,3 +11,4 @@
 - https://www.youtube.com/watch?v=epe_4fnpTjk&ab_channel=JustinNelson%27sProjects
 - https://github.com/tsprlng/toyota-kenwood-adaptor ## works
 - http://drclone.blogspot.com/2015/01/controlar-autorradio-sony-con-los.html
+- https://www.youtube.com/watch?v=6VO589mRQkM&ab_channel=TravisColesen
