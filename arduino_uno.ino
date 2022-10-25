@@ -139,6 +139,7 @@ void compruebaRuleta()
     {
        //teclaRuletaMas();
        Serial.println("ruedita abajo");
+       KenwoodOutput(4);
        ruletaSiguiente = ruletaAnterior;
        ruletaAnterior = ruletaActual;
        ruletaActual = marron; 
@@ -147,6 +148,7 @@ void compruebaRuleta()
     {
        // teclaRuletaMenos();
        Serial.println("ruedita arriba");
+       KenwoodOutput(3);
        ruletaAnterior = ruletaSiguiente;
        ruletaSiguiente = ruletaActual;
        ruletaActual = marron; 
@@ -160,18 +162,18 @@ void inicializaRuleta()  //LEEMOS EL ESTADO INICIAL DE LA RULETA AL ENCENDER LA 
     ruletaActual = compruebaPinPulsado(pinMarron);
     if (ruletaActual == pinVerde)
     {
-    ruletaSiguiente = pinAzul;
-    ruletaAnterior = pinAmarillo;
+      ruletaSiguiente = pinAzul;
+      ruletaAnterior = pinAmarillo;
     }
     else if (ruletaActual == pinAzul)
     {
-    ruletaSiguiente = pinAmarillo;
-    ruletaAnterior = pinVerde;
+      ruletaSiguiente = pinAmarillo;
+      ruletaAnterior = pinVerde;
     }
     else if (ruletaActual == pinAmarillo)
     {
-    ruletaAnterior=pinAzul;
-    ruletaSiguiente=pinVerde;
+      ruletaAnterior=pinAzul;
+      ruletaSiguiente=pinVerde;
     }
   }
 
