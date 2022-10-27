@@ -18,5 +18,6 @@
 ### 
 
 - https://www.youtube.com/watch?v=vRJ6ywV8bLI&ab_channel=Electr%C3%B3nicaAWV
+- https://randomnerdtutorials.com/esp8266-pinout-reference-gpios/
 
 
