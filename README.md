@@ -24,3 +24,14 @@
 
 ![Alt text](ESP8266-NodeMCU-kit-12-E-pinout-gpio-pin.webp "ESP8266 Pins schema")
 
+```
+
+D4 -> 2
+D8 -> 15
+D2 -> 4
+D6 -> 12
+D5 -> 14
+D1 -> 5 -> Stereo Output -> kenwood
+
+
+```

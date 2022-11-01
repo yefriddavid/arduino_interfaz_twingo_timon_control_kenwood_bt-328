@@ -1,17 +1,16 @@
-// #include <SPI.h>
+/* 				Twingo Stering Wheel Audio Stereo Contro 					*/
+/*------------------+---------------+-------------------+-----------------------+---------------+-----------------------+*/
+/*================= | Code Variable |	    Pin		|     Arnes Color 	|   Board Pin 	| 	Control Color	|*/
+/*------------------+---------------+-------------------+-----------------------+---------------+-----------------------+*/
+static const uint8_t pinVerde 	= 	4; 	// 	| 	Green		| 	D2 	|	Green 		|
+static const uint8_t pinMarron 	= 	2; 	// 	| 	White 		|	D4 	|	Brown 		|
+static const uint8_t pinAmarillo = 	15; 	// 	| 	Yellow		|	D8 	|	Yellow 		|
+static const uint8_t pinAzul 	= 	12; 	// 	| 	Blue		|	D6 	|	Light Blue 	|
+static const uint8_t pinNegro 	= 	13; 	//	| 	White/Brown 	|	D7 	|	Black		|		
+static const uint8_t pinRojo 	= 	14; 	// 	| 	White/Orange 	|	D5 	|	Red 		|
+/*------------------------------------------------------+---------------+---------------+-------------------------------+*/
 
-static const uint8_t pinNegro = 4;
-static const uint8_t pinMarron = 5;
-static const uint8_t pinRojo = 14;
-static const uint8_t pinAzul = 13;
-static const uint8_t pinVerde = 15;
-static const uint8_t pinAmarillo = 12;
-
-static const uint8_t port = 2;
-
-
-//#define myPinAzulBit 13
-//#define pinAzulBit (1<<myPinAzulBit)
+static const uint8_t stereoOutput = 5; // output -> yellow D1
 
 int azul;
 int verde;
@@ -41,19 +40,19 @@ const String KenwoodCommDescriptionArray[10] = {
   "Source"
 };
 
-
-
 void setup()
 {
 
-  pinMode(pinMarron, INPUT_PULLUP); // Por defecto los pins de entrada en HIGH (PULLUP)
-  pinMode(pinNegro, INPUT_PULLUP);
-  pinMode(pinRojo, INPUT_PULLUP);
+  // Por defecto los pins de entrada en HIGH (PULLUP)
+  pinMode(pinMarron, INPUT_PULLUP); 	// for wheel
+  pinMode(pinNegro, INPUT_PULLUP); 	// for buttons
+  pinMode(pinRojo, INPUT_PULLUP); 	// for buttons
 
   pinMode(pinAzul, OUTPUT);
   pinMode(pinVerde, OUTPUT);
   pinMode(pinAmarillo, OUTPUT);
-  pinMode(port, OUTPUT);
+
+  pinMode(stereoOutput, OUTPUT); // For send kenwood commands
 
   //inicializamos pines a LOW.
   digitalWrite(pinAzul, LOW);
@@ -74,13 +73,14 @@ void loop()
 }
 
 void readButtonActions() {
-  delay(150);
-  // delay(250);
+  // delay(200);
+  delay(250);
   rojo = digitalRead(pinRojo);
   negro = digitalRead(pinNegro);
 
   if (negro == LOW) // se van leyendo los pines maestros para ver si cambian de estado..
   {
+    Serial.print("Black:");
     pulsado = compruebaPinPulsado(pinNegro);
     if (pulsado == pinAzul)
     {
@@ -88,16 +88,17 @@ void readButtonActions() {
     }
     else if (pulsado == pinVerde)
     {
-      SendKenwoodMessage(SKIP_FORWARD);
+      SendKenwoodMessage(SKIP_BACKWARD);
     }
     else if (pulsado == pinAmarillo)
     {
-      SendKenwoodMessage(SKIP_BACKWARD);
+      SendKenwoodMessage(SKIP_FORWARD);
     }
 
   }
   else if (rojo == LOW)
   {
+    Serial.print("Red:");
     pulsado = compruebaPinPulsado(pinRojo);
     if (pulsado == pinAzul)
     {
@@ -162,21 +163,24 @@ void inicializaRuleta()  //LEEMOS EL ESTADO INICIAL DE LA RULETA AL ENCENDER LA 
   }
 }
 
-
-
-
 int compruebaPinPulsado(int pinBuscado)
 {
+  
   digitalWrite(pinAzul, HIGH);
   if (digitalRead(pinBuscado) == HIGH)
   {
     pulsado = pinAzul;
+    digitalWrite(pinAzul, LOW);
+    return pulsado;
   }
+  
   digitalWrite(pinAzul, LOW);
   digitalWrite(pinVerde, HIGH);
   if (digitalRead(pinBuscado) == HIGH)
   {
     pulsado = pinVerde;
+    digitalWrite(pinVerde, LOW);
+    return pulsado;
   }
 
   digitalWrite(pinVerde, LOW);
@@ -189,40 +193,22 @@ int compruebaPinPulsado(int pinBuscado)
   return pulsado;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 byte KenwoodData; //variable initializer for data that will be sent to Kenwood stereo
-
 byte CarSWbuttonInput = 0; //initialize variable that will switch through different commands
-
+int before_millis;
 
 void SendKenwoodMessage(int messageId) {
   CarSWbuttonInput = messageId;
-  PrepareKenwoodMessage(); // B10101000 down B00010100: up
-  //Serial.println(KenwoodCommDescriptionArray[messageId]);
+  PrepareKenwoodMessage();
+  Serial.println(KenwoodCommDescriptionArray[messageId]);
+
+  int diff = millis() - before_millis;
+  //Serial.println(diff);
+
+  //Serial.println(before_millis);
+
+
+  before_millis = millis();
 }
 
 void PrepareKenwoodMessage() {
@@ -239,51 +225,49 @@ void PrepareKenwoodMessage() {
     B00010011
   }; // 7) 11001000 00110111 Source
 
-  byte KenwoodCommand; //variable initializer for which command is chosen
+  byte KenwoodCommand;
   switch (CarSWbuttonInput) {
-    case 0:    /*do nothing currently*/   Serial.println("No Button");   break;
-    case 1:    KenwoodCommand = KenwoodCommArray[1]; Serial.println("Volume Up");   break;   //Volume up
-    case 2:    KenwoodCommand = KenwoodCommArray[2]; Serial.println("Volume Down");   break;   //Volume down
-    case 3:    KenwoodCommand = KenwoodCommArray[3]; Serial.println("Skip Forward");   break;   //Skip Forward
-    case 4:    KenwoodCommand = KenwoodCommArray[4]; Serial.println("Skip Backward");   break;   //Skip Backward
-    case 5:    KenwoodCommand = KenwoodCommArray[5]; Serial.println("Play/Pause");   break;   //1-6 button - Play/Pause
-    case 6:    KenwoodCommand = KenwoodCommArray[6]; Serial.println("Mute");   break;   //Mute
-    case 7:    KenwoodCommand = KenwoodCommArray[7]; Serial.println("Source");   break;   //Source
+    case 0:    break; /*do nothing currently*/
+    case 1:    KenwoodCommand = KenwoodCommArray[1]; break;   //Volume up
+    case 2:    KenwoodCommand = KenwoodCommArray[2]; break;   //Volume down
+    case 3:    KenwoodCommand = KenwoodCommArray[3]; break;   //Skip Forward
+    case 4:    KenwoodCommand = KenwoodCommArray[4]; break;   //Skip Backward
+    case 5:    KenwoodCommand = KenwoodCommArray[5]; break;   //1-6 button - Play/Pause
+    case 6:    KenwoodCommand = KenwoodCommArray[6]; break;   //Mute
+    case 7:    KenwoodCommand = KenwoodCommArray[7]; break;   //Source
   }
 
-  digitalWrite(port, LOW);     delayMicroseconds(9000); //turn ON for 9ms for Start
-  digitalWrite(port, HIGH);    delayMicroseconds(4500); //turn OFF for 4.5ms for Start
+  digitalWrite(stereoOutput, LOW);     delayMicroseconds(9000); //turn ON for 9ms for Start
+  digitalWrite(stereoOutput, HIGH);    delayMicroseconds(4500); //turn OFF for 4.5ms for Start
 
   KenwoodData = KenwoodAddress;
   SendKenwoodBinary();  // Send Device Address
   KenwoodData = KenwoodCommand;
   SendKenwoodBinary();
 
-
-
-  digitalWrite(port, LOW);     delayMicroseconds(562); // prender para finalizar
-  digitalWrite(port, HIGH);    // apagar para finalizar
+  digitalWrite(stereoOutput, LOW);     delayMicroseconds(562); // prender para finalizar
+  digitalWrite(stereoOutput, HIGH);    // apagar para finalizar
 
 }
 
 /*****************************************************************************/
 void SendKenwoodBinary() {
-  byte bit; //variable that flips through bits
+  byte bit;
 
   for (byte i = 1; i <= 2; i++) {
     if (i == 2) {
-      KenwoodData = ~KenwoodData;    //also send inverted data
+      KenwoodData = ~KenwoodData;
     }
 
     for (byte X = 0; X <= 7; X++) {
       bit = bitRead(KenwoodData, X); //bitRead starts with LSB (least significant bit), meaning it reads right-most bit moving leftward
       if (bit == 0) {
-        digitalWrite(port, LOW);     delayMicroseconds(562);  //keep ON for 562.5us
-        digitalWrite(port, HIGH);    delayMicroseconds(562);  //keep OFF for 562.5us
+        digitalWrite(stereoOutput, LOW);     delayMicroseconds(562);  //keep ON for 562.5us
+        digitalWrite(stereoOutput, HIGH);    delayMicroseconds(562);  //keep OFF for 562.5us
       }
       else {  //(bit == 1)
-        digitalWrite(port, LOW);     delayMicroseconds(562);  //keep ON for 562.5us
-        digitalWrite(port, HIGH);    delayMicroseconds(1687); //keep OFF for 1687.5us
+        digitalWrite(stereoOutput, LOW);     delayMicroseconds(562);  //keep ON for 562.5us
+        digitalWrite(stereoOutput, HIGH);    delayMicroseconds(1687); //keep OFF for 1687.5us
       }
     }
   }
