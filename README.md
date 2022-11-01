@@ -23,6 +23,13 @@
 - https://randomnerdtutorials.com/esp8266-pinout-reference-gpios/
 
 
+### Commands
+```
+$ make upload
+$ make compile
+$ make just-compile
+```
+
 
 ![Alt text](ESP8266-NodeMCU-kit-12-E-pinout-gpio-pin.webp "ESP8266 Pins schema")
 
