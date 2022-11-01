@@ -21,3 +21,6 @@
 - https://randomnerdtutorials.com/esp8266-pinout-reference-gpios/
 
 
+
+![Alt text](ESP8266-NodeMCU-kit-12-E-pinout-gpio-pin.webp "ESP8266 Pins schema")
+
