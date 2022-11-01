@@ -1,6 +1,4 @@
-# Arduino interfaz twingo timon control kenwood bt-328
-
-
+# Arduino Interfaz Twingo Timon Control Kenwood BT-328
 
 
 ### References:
@@ -35,3 +33,18 @@ D1 -> 5 -> Stereo Output -> kenwood
 
 
 ```
+
+
+```
+Red Wire -> Ignition stereo car
+Black Wire -> Negative Stereo Wire harness
+Yellow Wire -> light/blue Wire Stero Harness
+
+```
+
+
+
+![Alt text](61PJYg5ijvL._AC_SL1288_.jpg "ESP8266 Kenwood wires schema")
+
+
+
