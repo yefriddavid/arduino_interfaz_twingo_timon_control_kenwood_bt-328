@@ -12,6 +12,8 @@
 - https://www.youtube.com/watch?v=6VO589mRQkM&ab_channel=TravisColesen
 - https://www.youtube.com/watch?v=RdR43ACfeu8&t=257s&ab_channel=MentalidadDeIngenier%C3%ADa
 - https://www.youtube.com/watch?v=d-j0onzzuNQ&t=305s&ab_channel=TheEngineeringMindset
+- https://lastminuteengineers.com/esp8266-pinout-reference/
+- https://randomnerdtutorials.com/esp8266-pinout-reference-gpios/
 
 
 
