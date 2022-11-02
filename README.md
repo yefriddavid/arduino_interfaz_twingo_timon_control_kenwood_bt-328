@@ -14,6 +14,9 @@
 - https://www.youtube.com/watch?v=d-j0onzzuNQ&t=305s&ab_channel=TheEngineeringMindset
 - https://lastminuteengineers.com/esp8266-pinout-reference/
 - https://randomnerdtutorials.com/esp8266-pinout-reference-gpios/
+- https://www.kenwood.com/asia/car/Steering-remote/
+- https://www.youtube.com/watch?v=fk73SCOE8qU&ab_channel=BartKuijper
+- https://pastebin.com/fXbScxV4 // code with jvc and twingo
 
 
 
