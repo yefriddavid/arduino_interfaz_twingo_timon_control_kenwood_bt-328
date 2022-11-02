@@ -72,3 +72,6 @@ Yellow Wire -> light/blue Wire Stero Harness
 
 
 
+
+![Alt text](D_NQ_NP_670314-MLV45242759239_032021-O.jpg "ESP8266 Kenwood wires schema")
+
