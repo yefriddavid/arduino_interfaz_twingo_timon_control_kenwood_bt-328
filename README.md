@@ -33,6 +33,16 @@ $ make just-compile
 
 ![Alt text](ESP8266-NodeMCU-kit-12-E-pinout-gpio-pin.webp "ESP8266 Pins schema")
 
+| Pin		|     Arnes Color 	|   ESP8266 Pin	| Card	Control Color	|
+|---------------|-----------------------|---------------|-----------------------|
+| 4		| 	Green		| 	D2 	|	Green 		|
+| 2	 	| 	White 		|	D4 	|	Brown 		|
+| 15 	 	| 	Yellow		|	D8 	|	Yellow 		|
+| 12 	 	| 	Blue		|	D6 	|	Light Blue 	|
+| 13 		| 	White/Brown 	|	D7 	|	Black		|		
+| 14 	 	| 	White/Orange 	|	D5 	|	Red 		|
+
+
 ```
 
 D4 -> 2
