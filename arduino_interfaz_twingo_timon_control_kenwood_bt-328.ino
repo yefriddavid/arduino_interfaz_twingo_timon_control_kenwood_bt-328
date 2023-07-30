@@ -1,13 +1,13 @@
-/* 				Twingo Stering Wheel Audio Stereo Contro 					*/
+/* 				Twingo Stering Wheel Audio Stereo Contro For Keenwood 					*/
 /*------------------+---------------+-------------------+-----------------------+---------------+-----------------------+*/
 /*================= | Code Variable |	    Pin		|     Arnes Color 	|   Board Pin 	| 	Control Color	|*/
 /*------------------+---------------+-------------------+-----------------------+---------------+-----------------------+*/
-static const uint8_t pinVerde 	= 	4; 	// 	| 	Green		| 	D2 	|	Green 		|
-static const uint8_t pinMarron 	= 	2; 	// 	| 	White 		|	D4 	|	Brown 		|
+static const uint8_t pinVerde 	 = 	4; 	// 	| 	Green		| 	D2 	|	Green 		|
+static const uint8_t pinMarron 	 = 	2; 	// 	| 	White 		|	D4 	|	Brown 		|
 static const uint8_t pinAmarillo = 	15; 	// 	| 	Yellow		|	D8 	|	Yellow 		|
-static const uint8_t pinAzul 	= 	12; 	// 	| 	Blue		|	D6 	|	Light Blue 	|
-static const uint8_t pinNegro 	= 	13; 	//	| 	White/Brown 	|	D7 	|	Black		|		
-static const uint8_t pinRojo 	= 	14; 	// 	| 	White/Orange 	|	D5 	|	Red 		|
+static const uint8_t pinAzul 	 = 	12; 	// 	| 	Blue		|	D6 	|	Light Blue 	|
+static const uint8_t pinNegro 	 = 	13; 	//	| 	White/Brown 	|	D7 	|	Black		|
+static const uint8_t pinRojo 	 = 	14; 	// 	| 	White/Orange 	|	D5 	|	Red 		|
 /*------------------------------------------------------+---------------+---------------+-------------------------------+*/
 
 static const uint8_t stereoOutput = 5; // output -> yellow D1
@@ -59,7 +59,7 @@ void setup()
   digitalWrite(pinVerde, LOW);
   digitalWrite(pinAmarillo, LOW);
 
-  Serial.begin(9600);
+  // Serial.begin(9600);
   // delay(10000);
   inicializaRuleta();
 
@@ -80,7 +80,7 @@ void readButtonActions() {
 
   if (negro == LOW) // se van leyendo los pines maestros para ver si cambian de estado..
   {
-    Serial.print("Black:");
+    Serial.println("Black:");
     pulsado = compruebaPinPulsado(pinNegro);
     if (pulsado == pinAzul)
     {
@@ -98,7 +98,7 @@ void readButtonActions() {
   }
   else if (rojo == LOW)
   {
-    Serial.print("Red:");
+    Serial.println("Red:");
     pulsado = compruebaPinPulsado(pinRojo);
     if (pulsado == pinAzul)
     {
