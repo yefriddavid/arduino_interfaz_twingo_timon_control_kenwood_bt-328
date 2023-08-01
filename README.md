@@ -82,3 +82,8 @@ Yellow Wire -> light/blue Wire Stero Harness
 
 
 ![Alt text](2022-11-02_09-14.png "Twingo Access 2012")
+
+
+## New features
+- beep: to know if the device started, from driver's seat
+
