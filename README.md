@@ -74,7 +74,7 @@ Yellow Wire -> light/blue Wire Stero Harness
 
 
 ### Command
-![Alt text](D_NQ_NP_670314-MLV45242759239_032021-O.jpg "ESP8266 Kenwood wires schema")
+<!--![Alt text](D_NQ_NP_670314-MLV45242759239_032021-O.jpg "ESP8266 Kenwood wires schema")-->
 
 
 
@@ -86,4 +86,7 @@ Yellow Wire -> light/blue Wire Stero Harness
 
 ## New features
 - beep: to know if the device started, from driver's seat
+
+![Alt text](NodeMcu-V3-CH340-Lua-ESP8266-pinout-mischianti-low-resolution.jpg "ESP8266 Kenwood wires schema")
+
 
