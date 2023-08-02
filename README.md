@@ -19,6 +19,8 @@
 - https://pastebin.com/fXbScxV4 // code with jvc and twingo
 
 
+### Pinout
+https://lastminuteengineers.com/esp8266-pinout-reference/
 
 ### 
 
