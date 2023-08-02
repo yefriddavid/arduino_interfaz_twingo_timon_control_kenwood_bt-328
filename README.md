@@ -20,7 +20,8 @@
 
 
 ### Pinout
-https://lastminuteengineers.com/esp8266-pinout-reference/
+- https://lastminuteengineers.com/esp8266-pinout-reference/
+- https://lededitpro.com/esp8266-pinout-guide-gpios/
 
 ### 
 
@@ -36,7 +37,7 @@ $ make just-compile
 ```
 
 
-![Alt text](ESP8266-NodeMCU-kit-12-E-pinout-gpio-pin.webp "ESP8266 Pins schema")
+![Alt text](imgs/ESP8266-NodeMCU-kit-12-E-pinout-gpio-pin.webp "ESP8266 Pins schema")
 
 | Pin		|     Arnes Color 	|   ESP8266 Pin	| Card	Control Color	|
 |---------------|-----------------------|---------------|-----------------------|
@@ -70,7 +71,7 @@ Yellow Wire -> light/blue Wire Stero Harness
 
 
 
-![Alt text](61PJYg5ijvL._AC_SL1288_.jpg "ESP8266 Kenwood wires schema")
+![Alt text](imgs/61PJYg5ijvL._AC_SL1288_.jpg "ESP8266 Kenwood wires schema")
 
 
 
@@ -83,12 +84,18 @@ Yellow Wire -> light/blue Wire Stero Harness
 ### Twingo Access
 
 
-![Alt text](2022-11-02_09-14.png "Twingo Access 2012")
+![Alt text](imgs/2022-11-02_09-14.png "Twingo Access 2012")
 
 
 ## New features
 - beep: to know if the device started, from driver's seat
 
-![Alt text](NodeMcu-V3-CH340-Lua-ESP8266-pinout-mischianti-low-resolution.jpg "ESP8266 Kenwood wires schema")
+![Alt text](imgs/NodeMcu-V3-CH340-Lua-ESP8266-pinout-mischianti-low-resolution.jpg "ESP8266 Kenwood wires schema")
+
+## Green Output (OK) only works for leds or something like
+![Alt text](imgs/pins-guide.png "Pins Guide")
+
+
+![Alt text](imgs/kenwood-bt328.png "Kenwood BT328")
 
 
