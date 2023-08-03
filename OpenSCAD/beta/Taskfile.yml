@@ -1,0 +1,15 @@
+version: 3
+
+vars:
+  type: "stl"
+  fileName: "twingo_timon_control"
+
+tasks:
+  export:
+    cmds:
+      - openscad -o {{.fileName}}.{{.type}} {{.fileName}}.scad
+        #- openscad -o test.stl generic_box_v2.scad
+
+  open:
+    cmds:
+      - open https://3dviewer.net/#

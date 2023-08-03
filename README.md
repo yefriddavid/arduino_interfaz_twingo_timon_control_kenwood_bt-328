@@ -97,5 +97,6 @@ Yellow Wire -> light/blue Wire Stero Harness
 
 
 ![Alt text](imgs/kenwood-bt328.png "Kenwood BT328")
+![Alt text](OpenSCAD/beta/twingo_timon_control.png "Case 3D")
 
 

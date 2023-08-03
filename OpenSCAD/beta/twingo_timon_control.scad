@@ -1,29 +1,41 @@
 $fn=100;
 
 
-aspen = "gray";
-almond = "white";
+//aspen = "gray";
+//almond = "white";
+//pine = "green";
+//banyan="red";
+//aspen = "";
+aspen = "";//rgb(255, 0, 0);
+almond = "";
 
-pine = "green";
-banyan="red";
+pine = "";
+banyan="";
 altoSoporte = 3;
 
 
-translate([-w/2-10,0,d+bpt+tpt])
-rotate(a=180, v=[0,1,0])
-lid();
-translate([w/2+10,0,0])
-box();
 
 
-w=78;
-h=56;
-d=25;
+
+
+w=78; // Width
+h=56; // Higth
+d=25; //
 wt=3.5;
 bpt=5;
 tpt=5;
 cd=5;
 cwt=1.5;
+
+echo(d+bpt+tpt);
+translate([-w/2-10,0,d+bpt+tpt+1])
+rotate(a=180, v=[0,1,0])
+lid();
+
+
+translate([w/2+10,0,1])
+box();
+
 
 cx=0;
 cy=0;
@@ -138,16 +150,23 @@ module box()
         /*************************/
 
     }
-             //box_laterals_holes(); //preview
+
+    //box_laterals_holes(); //preview
 }
+
 
 module box_laterals_holes()
 {
     translate([cx,cy,0])
     {
+// x, y, z
+        //ancho=25; // -13
+        ancho=20; // -8
 
-        translate([+chd_h/2+-62,-34,23]) cube([35,10,8]);
-        //translate([+chd_h/2-88,-10,20]) cube([9,19,11]);
+        x = ancho/2*-1;
+        translate([x,-34,23])
+        cube([ancho,10,8]);
+        // original translate([+chd_h/2+-62,-34,23]) cube([ancho,10,8]);
 
     }
 
@@ -157,7 +176,7 @@ module lid_laterals_holes()
 {
     translate([cx,cy,0])
     {
-        // translate([+chd_h/2+6,-10,24]) cube([3,19,3]);
+
         translate([+chd_h/2-99,-10,24]) cube([3,19,5]);
 
     }
@@ -168,44 +187,11 @@ module lid_postes()
     translate([cx,cy,0])
     {
 
-        //translate([+chd_h/2,chd_v/2-30,0])
         color(aspen) translate([+chd_h/2-18,chd_v/2-25.5,27]) cylinder(r=chs_o,h=altoSoporte+dsth);
         color(pine) translate([-chd_h/2+18,chd_v/2-25.5,27]) cylinder(r=chs_o,h=altoSoporte+dsth);
-        //color() //translate([+chd_h/2,-chd_v/2,0]) cylinder(r=chs_o,h=bpt+dsth);
         color(almond) translate([+chd_h/2-18,-chd_v/2+25.5,27]) cylinder(r=chs_o,h=altoSoporte+dsth);
         color(banyan) translate([-chd_h/2+18,-chd_v/2+25.5,27]) cylinder(r=chs_o,h=altoSoporte+dsth);
-        //echo("aca");
-        //echo(dsth);
 
-        //postes del centro
-        //color(banyan) translate([-chd_h/2+45,-chd_v/2+60.5,27]) cylinder(r=chs_o,h=altoSoporte);
-        //color(banyan) translate([-chd_h/2+45,-chd_v/2+60.5,25]) cylinder(r=1.9,h=2); //pin
-
-        //color(pine) translate([-chd_h/2+45,-chd_v/2+30.5,27]) cylinder(r=chs_o,h=altoSoporte);
-        //color(pine) translate([-chd_h/2+45,-chd_v/2+30.5,25]) cylinder(r=1.9,h=2); //pin
-
-        // soportes board
-        //color(banyan) translate([-chd_h/2+60,-chd_v/2+45.5,27]) cylinder(r=chs_o,h=altoSoporte);
-        //color(pine) translate([-chd_h/2+30,-chd_v/2+45.5,27]) cylinder(r=chs_o,h=altoSoporte);
-
-
-
-        //postes laterales
-        //color(aspen) translate([-chd_h/2+1,-chd_v/2+53,27]) cylinder(r=chs_o-1,h=3);
-        //color(aspen) translate([-chd_h/2+1,-chd_v/2+53,25]) cylinder(r=1.4,h=2);
-
-        //color(almond) translate([-chd_h/2+1,-chd_v/2+39,27]) cylinder(r=chs_o-1,h=3);
-        //color(almond) translate([-chd_h/2+1,-chd_v/2+39,25]) cylinder(r=1.4,h=2);
-
-        //color(banyan) translate([-chd_h/2+92,-chd_v/2+53,27]) cylinder(r=chs_o-1,h=altoSoporte);
-        //color(banyan) translate([-chd_h/2+92,-chd_v/2+53,25]) cylinder(r=1.4,h=2);
-
-        //color(pine) translate([-chd_h/2+92,-chd_v/2+39,27]) cylinder(r=chs_o-1,h=altoSoporte);
-        //color(pine) translate([-chd_h/2+92,-chd_v/2+39,25]) cylinder(r=1.4,h=5);
-        //echo(chs_o);
-        //color("red") translate([-chd_h/2+45,-chd_v/2+95,0]) cylinder(r=chs_o-5,h=bpt+dsth+100);
-        //translate([-chd_h/2+40,-chd_v/2+55,0])
-	//cylinder(r=chs_o-5,h=bpt+dsth+200);
     }
 
 
