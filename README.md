@@ -99,6 +99,9 @@ Yellow Wire -> light/blue Wire Stero Harness
 
 
 ![Alt text](imgs/kenwood-bt328.png "Kenwood BT328")
+
+## Twingo Timon Control
+![Alt text](imgs/D_NQ_NP_670314-MLV45242759239_032021-O.jpg "Twingo Control")
 ![Alt text](OpenSCAD/beta/twingo_timon_control.png "Case 3D")
 ## Wire
 ![Alt text](imgs/remote_ken.jpg "Case 3D")
