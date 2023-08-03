@@ -17,6 +17,8 @@
 - https://www.kenwood.com/asia/car/Steering-remote/
 - https://www.youtube.com/watch?v=fk73SCOE8qU&ab_channel=BartKuijper
 - https://pastebin.com/fXbScxV4 // code with jvc and twingo
+- https://init6.pomorze.pl/projects/kenwood_ford/
+
 
 
 ### Pinout
@@ -98,5 +100,9 @@ Yellow Wire -> light/blue Wire Stero Harness
 
 ![Alt text](imgs/kenwood-bt328.png "Kenwood BT328")
 ![Alt text](OpenSCAD/beta/twingo_timon_control.png "Case 3D")
+## Wire
+![Alt text](imgs/remote_ken.jpg "Case 3D")
+## NEC
+![Alt text](imgs/NECMessageFrame.png "Case 3D")
 
 
