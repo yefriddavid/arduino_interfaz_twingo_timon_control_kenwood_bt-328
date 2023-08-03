@@ -51,6 +51,13 @@ $ make just-compile
 | 14 	 	| 	White/Orange 	|	D5 	|	Red 		|
 
 
+| 	   Wire     	|     Brown 	|   	Blak	| 	Red	|
+|-----------------------|---------------|---------------|---------------|
+| 	Green		|    RULETA	| SKIP_FORWARD  |    SOURCE     |
+| 	Yellow		|    RULETA	| SKIP_FORWARD  |   VOL DOWN    |
+| 	Blue		|    RULETA 	|    MUTE       |    VOL UP     |
+
+
 ```
 
 D4 -> 2
