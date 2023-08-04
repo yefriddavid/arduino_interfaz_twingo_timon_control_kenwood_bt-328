@@ -54,7 +54,7 @@ $ make just-compile
 | 	   Wire     	|     Brown 	|   	Blak	| 	Red	|
 |-----------------------|---------------|---------------|---------------|
 | 	Green		|    RULETA	| SKIP_FORWARD  |    SOURCE     |
-| 	Yellow		|    RULETA	| SKIP_FORWARD  |   VOL DOWN    |
+| 	Yellow		|    RULETA	| SKIP_BACKWARD  |   VOL DOWN    |
 | 	Blue		|    RULETA 	|    MUTE       |    VOL UP     |
 
 
