@@ -120,4 +120,6 @@ Yellow Wire -> light/blue Wire Stero Harness
 ## PCB
 ![Alt text](imgs/control_wheel_steering_twhingo_beta_pcb.png "PCB")
 
+![Alt text](imgs/Esp8266-pin-out-1024x576-1.png.webp "PCB")
+
 
